@@ -43,7 +43,7 @@ resource "kubernetes_deployment" "microservice2_deployment" {
       }
       spec {
         container {
-          image = "ianmaddocks/microservice2:v0.0.2"
+          image = "ianmaddocks/microservice2:latest"
           name  = "microservice2"
           port {
             container_port = 80
