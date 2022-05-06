@@ -87,11 +87,22 @@ resource "kubernetes_ingress_v1" "microservice2_ingress" {
           }
           path = "/version"
         }
+        path {
+          backend {
+            service {
+              name = "webapp1-svc"
+              port {
+                number = 80
+              }
+            }
+          }
+          path = "/whoami"
+        }
       }
     }
     tls {
-          secret_name = "webapp1"
-          hosts = ["civo.maddocks.name"]
+      secret_name = "webapp1"
+      hosts = ["civo.maddocks.name"]
     }
   }
 }
