@@ -100,11 +100,11 @@ resource "kubernetes_service_v1" "webapp1" {
   depends_on = [kubernetes_deployment.webapp1_deployment]
 
   metadata {
-    name = "microservice2-svc"
+    name = "webapp1-svc"
   }
   spec {
     selector = {
-      app = kubernetes_deployment.microservice2_deployment.metadata.0.labels.app
+      app = kubernetes_deployment.webapp1_deployment.metadata.0.labels.app
     }
     port {
       port  = 80
